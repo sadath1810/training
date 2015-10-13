@@ -1,0 +1,91 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" style="font-size:large">
+        User Registration
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" name="userRegisterForm"
+              novalidate>
+            <fieldset>
+                <legend>Register</legend>
+                <div class="form-group"
+                     ng-class="{'has-error':userRegisterForm.inputUserName.$invalid &&
+                                    userRegisterForm.inputUserName.$dirty}">
+                    <label class="col-md-2 control-label"
+                           for="inputUserName">User Name</label>
+
+                    <div class="col-md-4">
+                        <input class="form-control"
+                               id="inputUserName"
+                               name="inputUserName"
+                               type="text"
+                               placeholder="Email (required)"
+                               ng-model="vm.userData.email"
+                               required />
+                    </div>
+                    <span class="help-block has-error">
+                        <span ng-show="userRegisterForm.inputUserName.$error.required">
+                            Email is required.
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group"
+                     ng-class="{'has-error':userRegisterForm.inputPassword.$invalid &&
+                                    userRegisterForm.inputPassword.$dirty}">
+                    <label class="col-md-2 control-label" for="inputPassword">Password</label>
+
+                    <div class="col-md-4">
+                        <input type="password"
+                               class="form-control"
+                               id="inputPassword"
+                               name="inputPassword"
+                               ng-model="vm.userData.password"
+                               required>
+                    </div>
+                    <span class="help-block has-error"
+                          ng-show="userRegisterForm.inputPassword.$invalid ">
+                        Password is required
+                    </span>
+                </div>
+                <div class="form-group"
+                     ng-class="{'has-error':userRegisterForm.inputConfirmPassword.$invalid &&
+                                    userRegisterForm.inputConfirmPassword.$dirty}">
+                    <label class="col-md-2 control-label" for="inputPassword">Confirm Password</label>
+
+                    <div class="col-md-4">
+                        <input type="password"
+                               class="form-control"
+                               id="inputConfirmPassword"
+                               name="inputConfirmPassword"
+                               ng-model="vm.userData.confirmPassword"
+                               required>
+                    </div>
+                    <span class="help-block has-error"
+                          ng-show="userRegisterForm.inputConfirmPassword.$invalid ">
+                        Confirm Password is required
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    style="width:80px;margin-right:10px"
+                                    ng-click="vm.registerUser()"
+                                    ng-disabled="userRegisterForm.$invalid">
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn btn-default"
+                                    style="width:70px"
+                                    ng-click="vm.cancel()">
+                                Cancel
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
