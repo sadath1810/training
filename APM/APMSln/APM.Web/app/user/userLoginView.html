@@ -1,0 +1,73 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" style="font-size:large">
+        Login
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" name="userLoginForm"
+              novalidate>
+            <fieldset>
+                <legend>Login</legend>
+                <div class="form-group"
+                     ng-class="{'has-error':userLoginForm.inputUserName.$invalid &&
+                                    userLoginForm.inputUserName.$dirty}">
+                    <label class="col-md-2 control-label"
+                           for="inputUserName">User Name</label>
+
+                    <div class="col-md-4">
+                        <input class="form-control"
+                               id="inputUserName"
+                               name="inputUserName"
+                               type="text"
+                               placeholder="Email (required)"
+                               ng-model="vm.userData.email"
+                               required />
+                    </div>
+                    <span class="help-block has-error">
+                        <span ng-show="userLoginForm.inputUserName.$error.required">
+                            Email is required.
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group"
+                     ng-class="{'has-error':userLoginForm.inputPassword.$invalid &&
+                                    userLoginForm.inputPassword.$dirty}">
+                    <label class="col-md-2 control-label" for="inputPassword">Password</label>
+
+                    <div class="col-md-4">
+                        <input type="password"
+                               class="form-control"
+                               id="inputPassword"
+                               name="inputPassword"
+                               ng-model="vm.userData.password"
+                               required>
+                    </div>
+                    <span class="help-block has-error"
+                          ng-show="userLoginForm.inputPassword.$invalid ">
+                        Password is required
+                    </span>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    style="width:80px;margin-right:10px"
+                                    ng-click="vm.login(userLoginForm.$valid)"
+                                    ng-disabled="userLoginForm.$invalid">
+                                Login
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn btn-default"
+                                    style="width:70px"
+                                    ng-click="vm.cancel()">
+                                Cancel
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div ng-show="vm.message">{{vm.message}}</div>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
